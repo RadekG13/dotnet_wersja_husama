@@ -9,11 +9,11 @@ using Xamarin.Forms;
 
 namespace FormsTest
 {
-   public class UsersViewModel
-    { private IUsersRepository _usersRepository;
+   public class UsersViewModel : INotifyPropertyChanged
+    { private readonly IUsersRepository _usersRepository;
         private IEnumerable<Users> _users;
 
-        public IEnumerable<Users> Users
+        public IEnumerable<Users> UsersL
         {
             get
             {
@@ -28,6 +28,17 @@ namespace FormsTest
         public string UserName { get; set; }
         public string UserPassword { get; set; }
 
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    UsersL = await _usersRepository.GetUsersAsync();
+                });
+            }
+        }
+  
         public ICommand AddCommand
         {
             get
@@ -44,17 +55,7 @@ namespace FormsTest
             }
         }
 
-        public ICommand RefreshCommand
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    Users = await _usersRepository.GetUsersAsync();
-                });
-            }
-        }
-
+        
 
 
 

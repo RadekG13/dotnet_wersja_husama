@@ -29,7 +29,9 @@
                 </Grid>
             </StackLayout>
             <Button x:Name="Button_Register" Text="Register" Command="{Binding AddCommand}"/>
-            <ListView ItemsSource="{Binding Users}"/>
+            <ListView ItemsSource="{Binding UsersL}"/>
+            <Button x:Name="Button_Refresh" Text="Refresh" Command="{Binding RefreshCommand}"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

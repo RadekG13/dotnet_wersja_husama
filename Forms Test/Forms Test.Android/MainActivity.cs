@@ -25,10 +25,9 @@ namespace Forms_Test.Droid
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-           
 
-            var dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath ///sprawdzic potem
-                (System.Environment.SpecialFolder.Personal), "usersDB.db");
+
+            var dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "productsDB.db");
 
             var usersRepository = new UsersRepository(dbPath);
 

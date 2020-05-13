@@ -13,6 +13,7 @@ namespace SqliteConncection
         public DatabaseContext(string databasePath)
         {
             _databasePath = databasePath;
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

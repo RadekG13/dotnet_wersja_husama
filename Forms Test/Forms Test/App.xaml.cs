@@ -27,7 +27,13 @@ namespace Forms_Test
             {
                 BindingContext=new UsersViewModel(usersRepository)
             };
+            //var loginPage = new LoginPage();
             MainPage = new NavigationPage(registerPage);
+            // {
+            //   BindingContext = new UsersViewModel(usersRepository)
+            // };
+
+            //MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
