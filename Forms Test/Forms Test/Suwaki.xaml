@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Suwaki.MainPage">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="End">
+        <!-- Place new controls here --><!--
+        <Label Text="SYMULACJA" FontSize="Large" TextColor="PowderBlue"></Label>
+        <Label Text="Symulacja mocy" x:Name="label_moc"/>
+        <Slider ValueChanged="Slider_ValueChanged" x:Name="slider_mocy" Maximum="1000" ThumbColor="Black" MinimumTrackColor="Red" MaximumTrackColor="Green"/>
+        <Label Text="Symulacja kadencji" x:Name="label_kadencja"/>
+        <Slider ValueChanged="Slider_ValueChanged2" x:Name="slider_kadencji" Maximum="150" ThumbColor="Black" MinimumTrackColor="Red" MaximumTrackColor="Green"/>-->
+    </StackLayout>
+
+</ContentPage>
