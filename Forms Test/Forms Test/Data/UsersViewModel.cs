@@ -99,7 +99,7 @@ namespace FormsTest
                     if (true)
                     {
                         await Application.Current.MainPage.DisplayAlert("sukces", "zalogowano pomyslnie", "Ok");
-                        await Application.Current.MainPage.Navigation.PushModalAsync(new StronaNawigacyjna());
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new StronaNawigacyjna()));
                     }
                     else
                         await Application.Current.MainPage.DisplayAlert("blad", "zle dane", "ok");
