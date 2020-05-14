@@ -23,12 +23,12 @@ namespace Forms_Test
                  BindingContext= new UsersViewModel(usersRepository),
 
              };  */
-            var registerPage = new RegisterPage()
-            {
-                BindingContext=new UsersViewModel(usersRepository)
-            };
+            //var registerPage = new RegisterPage()
+            //{
+            //    BindingContext=new UsersViewModel(usersRepository)
+            //};
             //var loginPage = new LoginPage();
-            MainPage = new NavigationPage(registerPage);
+            MainPage = new NavigationPage(new LoginPage(usersRepository));
             // {
             //   BindingContext = new UsersViewModel(usersRepository)
             // };

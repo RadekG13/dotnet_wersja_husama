@@ -1,11 +1,15 @@
-﻿using FormsTest.Data;
+﻿using Forms_Test;
+using FormsTest.Data;
+using FormsTest.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace FormsTest
 {
@@ -50,13 +54,61 @@ namespace FormsTest
                         Name = UserName,
                         Password = UserPassword,
                     };
-                    await _usersRepository.AddUser(users);
+                   await _usersRepository.AddUser(users);
                 });
             }
         }
 
-        
+        public ICommand BackToPage
+        {
+            get
+            {
+                return new Command(async () =>
+                {
 
+
+                    
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new RegisterPage(_usersRepository));
+                });
+            } }
+        public ICommand BackToLogin
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+
+                   
+
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage(_usersRepository));
+                });
+            }
+        }
+
+        public ICommand Validate
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+
+                    // var e = await _usersRepository.GetUsersAsync();
+                    var e= UsersL.FirstOrDefault(c => c.Name.Equals($"UserName"));
+                    //var pass = await _usersRepository.GetUserByIdAsync(UserPassword);
+                  
+                    if (true)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("sukces", "zalogowano pomyslnie", "Ok");
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                    }
+                    else
+                        await Application.Current.MainPage.DisplayAlert("blad", "zle dane", "ok");
+
+
+                });
+            }
+        }
+        
 
 
         public UsersViewModel(IUsersRepository usersRepository)

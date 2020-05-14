@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace FormsTest.Data
 {
@@ -9,7 +10,7 @@ namespace FormsTest.Data
     {
         Task<IEnumerable<Users>> GetUsersAsync();
 
-        Task<Users> GetUserByIdAsync(int id);
+        Task<IEnumerable<Users>> GetUserByIdAsync(string username);
 
         Task<bool> AddUser(Users users);
 

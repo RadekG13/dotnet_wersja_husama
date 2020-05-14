@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FormsTest.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,10 @@ namespace FormsTest.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class RegisterPage : ContentPage
 {
-    public RegisterPage()
+    public RegisterPage(IUsersRepository usersRepository)
     {
         InitializeComponent();
+        BindingContext = new UsersViewModel(usersRepository);
     }
         private async void RegisterProcedure(object sender, EventArgs e)
         {

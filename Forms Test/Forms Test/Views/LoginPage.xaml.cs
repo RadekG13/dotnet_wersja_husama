@@ -1,4 +1,5 @@
 ﻿using Forms_Test;
+using FormsTest.Data;
 using FormsTest.Models;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,15 @@ namespace FormsTest.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class LoginPage : ContentPage
 {
-    public LoginPage()
+    public LoginPage(IUsersRepository usersRepository)
     {
         InitializeComponent();
         Init();
+        BindingContext = new UsersViewModel(usersRepository);
 
-    }
+
+
+        }
 
         void Init()
         {
@@ -30,20 +34,13 @@ public partial class LoginPage : ContentPage
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
 
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
-            Entry_Password.Completed += (s, e) => SignInProcedure(s,e);
+          //  Entry_Password.Completed += (s, e) => SignInProcedure(s,e);
         }
-         void SignInProcedure(object sender, EventArgs e)//PRZEROBIĆ NA ASYNC??
+         void SignInProcedure(object sender, EventArgs e)
         {
-            //User user = new User(Entry_Username.Text, Entry_Password.Text);
-            //if(user.CheckInformation())
-            //{
-            //    DisplayAlert("Login", "Login Success", "Okey");
-            //     Navigation.PushAsync(new MainPage());
-            //}
-            //else
-            //{
+           
                 DisplayAlert("Login", "Login Not Correct, empty username or password", "Okey");
-           // }
+           
         }
 
 
@@ -51,11 +48,9 @@ public partial class LoginPage : ContentPage
         {
             Entry_Password.IsPassword = Entry_Password.IsPassword ? false : true;
         }
+       
 
-        private async void NavigateButton_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new RegisterPage());
-        }
+       
 
     }
 }

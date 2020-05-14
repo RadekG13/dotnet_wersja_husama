@@ -46,13 +46,15 @@ namespace SqliteConncection
             }
         }
 
-        public async Task<Users> GetUserByIdAsync(int id)
+        public async Task<IEnumerable<Users>> GetUserByIdAsync(string username)
         {
             try
             {
-                var users = await _databaseContext.Users.FindAsync(id);
-
-                return users;
+                var users1 = await _databaseContext.Users.Where(x => x.Name == username).ToListAsync();   
+                
+               
+                return users1;
+                
             }
             catch (Exception e)
             {

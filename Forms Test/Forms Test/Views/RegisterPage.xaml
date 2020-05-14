@@ -12,15 +12,15 @@
             <Label x:Name="Lbl_Username" Text="Username" />
             <Entry x:Name="Entry_Username" Text="{Binding UserName}"/>
             <Label x:Name="Lbl_Password" Text="Password" />
-            <!--<Entry x:Name="Entry_Password" Placeholder="Password"/>-->
+           
             <StackLayout Grid.Row="2" Grid.Column="1">
-                <!--DO REFAKTORYZACJI-->
+               
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Entry IsPassword="True" x:Name="Entry_Password" TextColor="Black" Text="{Binding UserPassword}" Grid.Column="0" Grid.ColumnSpan="2" />
+                     <Entry IsPassword="True" x:Name="Entry_Password" TextColor="Black" Text="{Binding UserPassword}" Grid.Column="0" Grid.ColumnSpan="2" />
                     <Image Source="eye32.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="50" HeightRequest="50" Grid.Column="1" >
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1" />
@@ -29,6 +29,7 @@
                 </Grid>
             </StackLayout>
             <Button x:Name="Button_Register" Text="Register" Command="{Binding AddCommand}"/>
+            <Button x:Name="Button_toLogin" Text="To Login" Command="{Binding BackToLogin}"/>
             <ListView ItemsSource="{Binding UsersL}"/>
             <Button x:Name="Button_Refresh" Text="Refresh" Command="{Binding RefreshCommand}"/>
             
