@@ -93,13 +93,13 @@ namespace FormsTest
                 {
 
                     // var e = await _usersRepository.GetUsersAsync();
-                    var e= UsersL.FirstOrDefault(c => c.Name.Equals($"UserName"));
+                    //var e= UsersL.FirstOrDefault(c => c.Name.Equals($"UserName"));
                     //var pass = await _usersRepository.GetUserByIdAsync(UserPassword);
                   
                     if (true)
                     {
                         await Application.Current.MainPage.DisplayAlert("sukces", "zalogowano pomyslnie", "Ok");
-                        await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new StronaNawigacyjna());
                     }
                     else
                         await Application.Current.MainPage.DisplayAlert("blad", "zle dane", "ok");

@@ -16,11 +16,29 @@ namespace Forms_Test
     {
         public MainPage()
         {
+            int jakisczas = 12;
+
             InitializeComponent();
+
+
+            CzasTreningu.Text = $"{jakisczas}:{jakisczas}:{jakisczas}";
+
+            Temperatura.Text = $"{jakisczas} °C";
+
+            MocSrednia.Text = $"Średnia: {jakisczas} W";
+
+            MocChwilowa.Text = $"Chwilowa: {jakisczas} W";
+
+            KadencjaSrednia.Text = $"Kadencja: {jakisczas} obr/min";
+
+            KadencjaChwilowa.Text = $"Kadencja: {jakisczas} obr/min";
         }
-        private async void NavigateButton_OnClicked(object sender, EventArgs e)
+        int count = 0;
+        void Koniec_Button(object sender, System.EventArgs e)
         {
-          //  await Navigation.PushAsync(new RegisterPage());
+
+            count++;
+            ((Button)sender).Text = $"Kliknąłeś {count} razy";
         }
     }
 }
